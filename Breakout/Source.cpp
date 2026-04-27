@@ -13,7 +13,7 @@ const unsigned int SCR_HEIGHT = 800;
 
 Game Breakout(SCR_WIDTH, SCR_HEIGHT);
 
-int main()
+int main(int argc, char* argv[])
 {
 	GLFWwindow* window = InitWindow();
 	if (!window)
@@ -24,7 +24,24 @@ int main()
 	float deltaTime = 0.0f;
 	float lastFrame = 0.0f;
 
-	Breakout.State = GAME_MENU;
+	// Check for command line arguments (e.g., Breakout.exe 1)
+	if (argc > 1)
+	{
+		int startLevel = std::stoi(argv[1]);
+		if (startLevel >= 0 && startLevel < 4)
+		{
+			Breakout.Level = startLevel;
+			Breakout.State = GAME_ACTIVE;
+		}
+		else
+		{
+			Breakout.State = GAME_MENU;
+		}
+	}
+	else
+	{
+		Breakout.State = GAME_MENU;
+	}
 
 	// Game Loop
 	while (!glfwWindowShouldClose(window))

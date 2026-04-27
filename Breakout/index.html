@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="classic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bricks Breakout — A modern take on the 1976 Atari Breakout game. Built with OpenGL.">
+    <title>Bricks Breakout — Main Menu</title>
+    <link rel="icon" href="res/textures/sprites/ball-character.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background Layers -->
+    <div class="bg-parallax">
+        <div class="bg-layer bg-layer--stars"></div>
+        <div class="bg-layer bg-layer--hills-far"></div>
+        <div class="bg-layer bg-layer--hills-near"></div>
+        <div class="bg-layer bg-layer--ground"></div>
+        <div class="bg-layer bg-layer--grid"></div>
+    </div>
+
+    <!-- Floating Ring Particles -->
+    <div id="particles-container" aria-hidden="true"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="app-wrapper">
+
+        <!-- Header / Logo -->
+        <header class="hero" id="hero">
+            <div class="logo-glow"></div>
+            <img src="res/textures/sprites/bricks-logo.png" alt="Bricks Breakout Logo" class="hero__logo" id="hero-logo">
+            <h1 class="hero__title">BRICKS<span class="hero__title--accent"> BREAKOUT</span></h1>
+            <p class="hero__subtitle">A modern take on the classic 1976 Atari Breakout</p>
+            <div class="hero__rings">
+                <span class="ring ring--1">◆</span>
+                <span class="ring ring--2">◆</span>
+                <span class="ring ring--3">◆</span>
+                <span class="ring ring--4">◆</span>
+                <span class="ring ring--5">◆</span>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-nav" id="main-nav">
+            <button class="nav-btn nav-btn--primary" id="btn-play" data-section="play">
+                <span class="nav-btn__icon">▶</span>
+                <span class="nav-btn__label">PLAY</span>
+            </button>
+            <button class="nav-btn" id="btn-levels" data-section="levels">
+                <span class="nav-btn__icon">☰</span>
+                <span class="nav-btn__label">LEVELS</span>
+            </button>
+            <button class="nav-btn" id="btn-settings" data-section="settings">
+                <span class="nav-btn__icon">⚙</span>
+                <span class="nav-btn__label">SETTINGS</span>
+            </button>
+        </nav>
+
+        <!-- Sections Container -->
+        <main class="sections" id="sections">
+
+            <!-- PLAY Section (default visible) -->
+            <section class="section section--play active" id="section-play">
+                <div class="play-panel glass-panel">
+                    <div class="play-panel__sonic">
+                        <img src="res/textures/sprites/ball-character.png" alt="Ball" class="sonic-sprite" id="sonic-sprite">
+                    </div>
+                    <h2 class="section__title">READY TO SMASH?</h2>
+                    <p class="play-panel__desc">Launch the game and smash through all the bricks!</p>
+                    <button class="btn-launch" id="btn-launch-game">
+                        <span class="btn-launch__ring"></span>
+                        LAUNCH GAME
+                    </button>
+                    <div class="play-panel__controls">
+                        <h3>CONTROLS</h3>
+                        <div class="controls-grid">
+                            <div class="control-item">
+                                <kbd>A</kbd><kbd>D</kbd>
+                                <span>Move Paddle</span>
+                            </div>
+                            <div class="control-item">
+                                <kbd>SPACE</kbd>
+                                <span>Launch Ball</span>
+                            </div>
+                            <div class="control-item">
+                                <kbd>W</kbd><kbd>S</kbd>
+                                <span>Select Level</span>
+                            </div>
+                            <div class="control-item">
+                                <kbd>P</kbd>
+                                <span>Pause</span>
+                            </div>
+                            <div class="control-item">
+                                <kbd>TAB</kbd>
+                                <span>Help Menu</span>
+                            </div>
+                            <div class="control-item">
+                                <kbd>ESC</kbd>
+                                <span>Quit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LEVELS Section -->
+            <section class="section section--levels" id="section-levels">
+                <h2 class="section__title">SELECT ZONE</h2>
+                <div class="levels-grid" id="levels-grid">
+                    <!-- Level cards rendered by JS -->
+                </div>
+            </section>
+
+            <!-- SETTINGS Section -->
+            <section class="section section--settings" id="section-settings">
+                <h2 class="section__title">SETTINGS</h2>
+                <div class="settings-panel glass-panel">
+
+                    <!-- Theme Switcher -->
+                    <div class="setting-group">
+                        <h3 class="setting-group__title">THEME</h3>
+                        <div class="theme-switcher" id="theme-switcher">
+                            <button class="theme-btn active" data-theme="classic" id="theme-classic">
+                                <span class="theme-btn__preview theme-btn__preview--classic"></span>
+                                <span class="theme-btn__name">Classic</span>
+                                <span class="theme-btn__desc">Vibrant Arcade</span>
+                            </button>
+                            <button class="theme-btn" data-theme="dark" id="theme-dark">
+                                <span class="theme-btn__preview theme-btn__preview--dark"></span>
+                                <span class="theme-btn__name">Night Mode</span>
+                                <span class="theme-btn__desc">Chemical Plant</span>
+                            </button>
+                            <button class="theme-btn" data-theme="retro" id="theme-retro">
+                                <span class="theme-btn__preview theme-btn__preview--retro"></span>
+                                <span class="theme-btn__name">Retro Atari</span>
+                                <span class="theme-btn__desc">1976 Original</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Audio Toggle -->
+                    <div class="setting-group">
+                        <h3 class="setting-group__title">AUDIO</h3>
+                        <div class="audio-controls">
+                            <button class="audio-toggle" id="audio-toggle">
+                                <span class="audio-toggle__icon" id="audio-icon">🔊</span>
+                                <span class="audio-toggle__label" id="audio-label">Sound ON</span>
+                            </button>
+                            <div class="volume-slider-wrap">
+                                <label for="volume-slider" class="volume-label">VOLUME</label>
+                                <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="50">
+                                <span class="volume-value" id="volume-value">50%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Info -->
+                    <div class="setting-group">
+                        <h3 class="setting-group__title">ABOUT</h3>
+                        <div class="about-info">
+                            <p><strong>Bricks Breakout</strong></p>
+                            <p>A modern take on the 1976 Atari Breakout</p>
+                            <p>Built with C++ &amp; OpenGL</p>
+                            <p class="about-info__credits">
+                                Source: <a href="https://learnopengl.com/" target="_blank" rel="noopener">LearnOpenGL</a> ·
+                                Sprites: <a href="https://www.spriters-resource.com/genesis_32x_scd/sonicth1/" target="_blank" rel="noopener">Spriters Resource</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer__emeralds">
+                <img src="res/textures/sprites/yellow-emerald.png" alt="" class="emerald">
+                <img src="res/textures/sprites/purple-emerald.png" alt="" class="emerald">
+                <img src="res/textures/sprites/blue-emerald.png" alt="" class="emerald">
+                <img src="res/textures/sprites/red-emerald.png" alt="" class="emerald">
+                <img src="res/textures/sprites/green-emerald.png" alt="" class="emerald">
+                <img src="res/textures/sprites/orange-emerald.png" alt="" class="emerald">
+                <img src="res/textures/sprites/white-emerald.png" alt="" class="emerald">
+            </div>
+            <p class="footer__text">© 2026 Bricks Breakout · AABB Collisions · Particle System · Post-Processing · Dynamic Audio</p>
+        </footer>
+    </div>
+
+    <!-- Background Music (hidden) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="res/audio/music/title.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
