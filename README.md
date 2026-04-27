@@ -1,60 +1,138 @@
-# Sonic Breakout
+# 🎮 Breaks Breakout — Modern OpenGL Game
 
-[![MSBuild-Debug](https://github.com/kyle-robinson/sonic-breakout/actions/workflows/msbuild-debug.yml/badge.svg)](https://github.com/kyle-robinson/sonic-breakout/actions/workflows/msbuild-debug.yml)
-&nbsp;
-[![MSBuild-Release](https://github.com/kyle-robinson/sonic-breakout/actions/workflows/msbuild-release.yml/badge.svg)](https://github.com/kyle-robinson/sonic-breakout/actions/workflows/msbuild-release.yml)
-&nbsp;
-[![CodeQL](https://github.com/kyle-robinson/sonic-breakout/actions/workflows/codeql.yml/badge.svg)](https://github.com/kyle-robinson/sonic-breakout/actions/workflows/codeql.yml)
-
-A modern take on the original 1976 Atari game "Breakout," featuring a Sonic the Hedgehog theme.
-
-*- Click <a href="https://kyle-robinson.github.io/html/breakout" target="_blank">here</a> to view project on website -*
-
-https://user-images.githubusercontent.com/39779606/134824004-da6b10f2-16fb-4d6e-affe-2323fdea3d25.mp4
-
-## List of Features
-
-- [x] AABB Collisions
-- [x] Particle System
-- [x] Post-Processing
-- [x] Level Maps
-- [x] Sprite Rendering
-- [x] Text Rendering
-- [x] Dynamic Audio
-
-## Getting Started
-
-Refer to the following information on how to install and use the application.
-
-### Dependencies
-To use the application, the following prerequisites must be met.
-* Windows 10+
-* Visual Studio
-* Git Version Control
-
-The application relies on the following libraries and APIs to function.
-* OpenGL
-
-### Installing
-
-To download a copy of the game, select "Download ZIP" from the main code repository page, or create a fork of the project. More information on forking a GitHub respository can be found [here](https://www.youtube.com/watch?v=XTolZqmZq6s).
-
-### Executing program
-
-There are no additional steps required to execute the application.
+A modern C++/OpenGL implementation of the classic Atari Breakout, built using advanced graphics techniques like particle systems, post-processing, and real-time rendering.
 
 ---
 
-### Credits
-        
-        Source Code
-            https://learnopengl.com/
-                    
-        Audio
-            https://youtu.be/G-i8HYi1QH0
-            https://www.101soundboards.com/boards/10990-sonic-the-hedgehog-sounds
-            https://www.101soundboards.com/boards/10609-dr-eggman-sounds-sonic-adventure-2
-                    
-        Images
-            https://imgur.com/a/hG3o4
-            https://www.spriters-resource.com/genesis_32x_scd/sonicth1/
+## 🚀 Features
+
+- 🧱 AABB Collision Detection\
+  Accurate collision handling between ball, paddle, and bricks.
+
+- ✨ Particle System\
+  Dynamic visual effects for enhanced gameplay experience.
+
+- 🎨 Post-Processing Effects\
+  Includes screen effects like chaos, confuse, and visual filters.
+
+- 🗺️ Level Maps\
+  Multiple levels loaded from external files.
+
+- 🖼️ Sprite Rendering\
+  Efficient rendering using textures and shaders.
+
+- 🔤 Text Rendering\
+  Display UI elements like score, lives, and menus.
+
+- 🔊 Dynamic Audio\
+  Real-time sound effects for collisions and gameplay events.
+
+---
+
+## 🛠️ Tech Stack
+
+- Language: C++
+- Graphics API: OpenGL
+- Math Library: GLM
+- Windowing/Input: GLFW
+- OpenGL Loader: GLAD
+- Audio: irrKlang (or similar)
+- Build Tool: Visual Studio
+
+---
+
+## 📦 Dependencies
+
+Make sure the following are installed:
+
+- Windows 10 or higher
+- Visual Studio
+- Git Version Control
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the Repository
+
+```
+git clone https://github.com/apurva333pm-beep/Bricks-Breakout-1-.git
+cd your-repo-name
+```
+
+### 2. Open in Visual Studio
+
+- Open the `.sln` file
+- Set configuration to Debug or Release (x64)
+
+### 3. Configure Dependencies
+
+Ensure all libraries are linked properly:
+
+- GLAD
+- GLFW
+- GLM
+- irrKlang (if used)
+
+### 4. Build and Run
+
+- Press Ctrl + F5 or click Run
+- Game window will launch
+
+---
+
+## 🎮 Controls
+
+| Key             | Action            |
+| --------------- | ----------------- |
+| A / Left Arrow  | Move Paddle Left  |
+| D / Right Arrow | Move Paddle Right |
+| Space           | Launch Ball       |
+| H               | Help Menu         |
+| ESC             | Exit              |
+
+---
+
+## 📂 Project Structure
+
+```
+├── src/
+│   ├── Game.cpp / Game.h
+│   ├── GameLevel.cpp / GameLevel.h
+│   ├── GameObject.cpp / GameObject.h
+│   ├── BallObject.cpp / BallObject.h
+│
+├── resources/
+│   ├── textures/
+│   ├── shaders/
+│   ├── levels/
+│   ├── audio/
+│
+├── main.cpp
+└── README.md
+```
+
+---
+
+## 🧠 Concepts Implemented
+
+- Game Loop Architecture
+- Collision Detection (AABB and Circle vs AABB)
+- Physics-based Ball Reflection
+- Resource Management System
+- Power-Up System
+- Shader-based Rendering
+
+---
+
+---
+
+## 🙌 Credits
+
+- OpenGL tutorials and reference materials
+
+---
+
+## 📌 Note
+
+This project is built for educational purposes in Computer Graphics and Game Development.

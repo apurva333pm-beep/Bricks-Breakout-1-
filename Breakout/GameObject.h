@@ -17,6 +17,8 @@ public:
 	float Rotation;
 	bool IsSolid, Destroyed;
 
+	int HitPoints; 
+
 	Texture2D Sprite;
 
 	GameObject();

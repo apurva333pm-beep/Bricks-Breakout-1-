@@ -74,7 +74,7 @@ void Game::Init()
 
 	// Textures
 	// Backgrounds
-	ResourceManager::LoadTexture("res/textures/sprites/title.png", true, "title");
+	//ResourceManager::LoadTexture("res/textures/sprites/title.png", true, "title");
 	ResourceManager::LoadTexture("res/textures/backgrounds/green-hill-zone.png", false, "green-hill-zone");
 	ResourceManager::LoadTexture("res/textures/backgrounds/marble-zone.png", false, "marble-zone");
 	ResourceManager::LoadTexture("res/textures/backgrounds/starlight-zone.png", false, "starlight-zone");
@@ -554,8 +554,8 @@ void Game::Render()
 		Text->RenderText("Press W or S to select level.", 320.0f, Height / 2 + 80.0f, 0.75f);
 		Text->RenderText("Press TAB for help.", 377.5f, Height / 2 + 117.5f, 0.75f, glm::vec3(0.0f));
 		Text->RenderText("Press TAB for help.", 380.0f, Height / 2 + 120.0f, 0.75f);
-		Texture2D titleTexture = ResourceManager::GetTexture("title");
-		Renderer->DrawSprite(titleTexture, glm::vec2(this->Width / 2 - 256.0f, this->Height / 2 - 300.0f), glm::vec2(512.0f, 300.0f), 0.0f);
+		//Texture2D titleTexture = ResourceManager::GetTexture("title");
+		//Renderer->DrawSprite(titleTexture, glm::vec2(this->Width / 2 - 256.0f, this->Height / 2 - 300.0f), glm::vec2(512.0f, 300.0f), 0.0f);
 	}
 
 	if (this->State == GAME_WIN)
