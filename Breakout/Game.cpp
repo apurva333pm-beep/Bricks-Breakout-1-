@@ -35,7 +35,8 @@ int boxTimer = 10;
 
 bool multiplayer = false;
 
-Game::Game(unsigned int width, unsigned int height) : State(GAME_ACTIVE), Keys(), Width(width), Height(height), Level(0), Lives(3)
+Game::Game(unsigned int width, unsigned int height) 
+	: State(GAME_ACTIVE), Keys(), Width(width), Height(height), Level(0), Lives(3), Score(0)
 {
 
 }
@@ -531,6 +532,11 @@ void Game::Render()
 			std::stringstream ss; ss << this->Lives;
 			Text->RenderText("Lives: " + ss.str(), 2.5f, 2.5f, 1.0f, glm::vec3(0.0f));
 			Text->RenderText("Lives: " + ss.str(), 5.0f, 5.0f, 1.0f);
+
+			std::stringstream scoreStream;
+            scoreStream << this->Score;
+            Text->RenderText("Score: " + scoreStream.str(), 2.5f, 32.5f, 1.0f, glm::vec3(0.0f));
+            Text->RenderText("Score: " + scoreStream.str(), 5.0f, 35.0f, 1.0f);
 			
 			Text->RenderText("'P' to pause", 372.5f, 2.5f, 1.0f, glm::vec3(0.0f));
 			Text->RenderText("'P' to pause", 375.0f, 5.0f, 1.0f);
@@ -724,6 +730,7 @@ void Game::DoCollisions()
 				if (!box.IsSolid)
 				{
 					box.Destroyed = true;
+					this->Score += 10;
 					this->SpawnPowerUps(box);
 					boxPosition = box.Position;
 					boxDestroyed = true;
@@ -847,6 +854,7 @@ void Game::ResetLevel()
 		this->Levels[4].Load("res/levels/four.lvl", this->Width, this->Height / 2);
 
 	this->Lives = 3;
+	this->Score = 0;
 }
 
 void Game::ResetPlayer()

@@ -47,6 +47,7 @@ public:
 	std::vector<GameLevel> Levels;
 	std::vector<PowerUp> PowerUps;
 	unsigned int Level;
+	unsigned int Score;
 	unsigned int Lives;
 
 	Game(unsigned int width, unsigned int height);
